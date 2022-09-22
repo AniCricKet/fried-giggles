@@ -1,16 +1,45 @@
 onEvent("Start", "click", function( ) {
-    penUp();
-    moveTo(70, 60); //Start Position of S
-    penDown();
-    moveTo(60, 60);
-    moveTo(60, 70);
-    moveTo(70, 70);
-    moveTo(70, 80);
-    moveTo(60, 80); //Letter S finished
-    hide();
-    moveTo(80, 60); //Start Position of O
-    show();
-    moveTo(80, 80);
-    moveTo(90, 80);
-  });
-  
+  penUp();
+  moveTo(70, 60); //Start Position of S
+  penDown();
+  moveTo(60, 60);
+  moveTo(60, 70);
+  moveTo(70, 70);
+  moveTo(70, 80);
+  moveTo(60, 80); //Letter S finished
+  penUp();
+  moveTo(80, 60); //Start Position of O
+  penDown();
+  moveTo(80, 80);
+  moveTo(90, 80);
+  moveTo(90, 60);
+  moveTo(80, 60); //Letter O finished
+  penUp();
+  moveTo(100, 60); //Start Position of H
+  penDown();
+  moveTo(100, 80);
+  moveTo(100, 70);
+  moveTo(110, 70);
+  moveTo(110, 60);
+  moveTo(110, 80); //Letter H finished
+  penUp();
+  moveTo(120, 80); //Start Position of A
+  penDown();
+  moveTo(120, 60); //Letter A finished
+  moveTo(130, 60);
+  moveTo(130, 80);
+  moveTo(130, 70);
+  moveTo(120, 70);
+  penUp();
+  moveTo(0, 0); //Start Position of M
+  penDown();
+  moveTo(0, 0);
+  moveTo(0, 0);
+  moveTo(0, 0);
+  moveTo(0, 0);
+  moveTo(0, 0);
+  moveTo(0, 0);
+  moveTo(0, 0);
+  moveTo(0, 0);
+  moveTo(0, 0);
+});
