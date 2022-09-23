@@ -1,40 +1,22 @@
-onEvent("Start", "click", function( ) {
-  penUp();
-  moveTo(70, 60); //Start Position of S
-  penDown();
-  moveTo(60, 60);
-  moveTo(60, 70);
-  moveTo(70, 70);
-  moveTo(70, 80);
-  moveTo(60, 80); //Letter S finished
-  penUp();
-  moveTo(80, 60); //Start Position of O
-  penDown();
-  moveTo(80, 80);
-  moveTo(90, 80);
-  moveTo(90, 60);
-  moveTo(80, 60); //Letter O finished
-  penUp();
-  moveTo(100, 60); //Start Position of H
-  penDown();
-  moveTo(100, 80);
-  moveTo(100, 70);
-  moveTo(110, 70);
-  moveTo(110, 60);
-  moveTo(110, 80); //Letter H finished
-  penUp();
-  moveTo(120, 80); //Start Position of A
-  penDown();
-  moveTo(120, 60); //Letter A finished
-  moveTo(130, 60);
-  moveTo(130, 80);
-  moveTo(130, 70);
-  moveTo(120, 70);
-  penUp();
-  moveTo(140, 80); //Start Position of M
-  penDown();
-  moveTo(140, 60);
-  moveTo(145, 70);
-  moveTo(150, 60);
-  moveTo(150, 80); //Letter M finished
-});
+
+<!-- Extending the predefined project layout -->
+{% extends "layouts/base.html" %}
+
+<!- This variable sets name of browser tab  -->
+{% set project = "Our lord and savior, Soham Kamat" %}
+
+<!- This is a replacement block for Body in base.html -->
+{% block body %}
+    <!- Try building a new body here, bootstrap is a wise choice ->
+    <div class="px-5 py-5 mx-auto">
+        <h1 class="text-primary"><strong>Stubby Body</strong></h1>
+        <p class="text-secondary">Put your name here</p>
+    </div>
+
+
+{% endblock %}
+
+<!- This is turning off birds background from base.html -->
+{% block background %}
+{% endblock %}
+
