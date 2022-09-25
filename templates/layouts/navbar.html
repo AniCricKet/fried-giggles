@@ -12,7 +12,6 @@ This HTML is setup as a fragment allowing it to be "included" by other HTML file
             <!-- url_for is a Jinja2 pre-processor that finds route from function name (def) -->
             <a class="nav-link" href={{ url_for('index') }}>Home</a>
             <a class="nav-link" href={{ url_for('stub') }}>Stub</a>
-            <a class="nav-link" href={{ url_for('SohamName') }}>Soham</a>
         </div>
     </div>
     <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
@@ -26,7 +25,6 @@ This HTML is setup as a fragment allowing it to be "included" by other HTML file
                     <li><a class="dropdown-item" href={{ url_for('projects.kangaroos') }}>Kangaroos</a></li>
                     <li><a class="dropdown-item" href={{ url_for('projects.walruses') }}>Walruses</a></li>
                     <li><a class="dropdown-item" href={{ url_for('projects.hawkers') }}>Hawkers</a></li>
-                    <li><a class="dropdown-item" href={{ url_for('projects.SOHAM_THE_GOD') }}>Hawkers</a></li>
                 </ul>
             </li>
         </ul>
