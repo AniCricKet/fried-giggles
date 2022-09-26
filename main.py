@@ -21,6 +21,26 @@ def index():
 def stub():
     return render_template("stub.html")
 
+@app.route('/aniket/')  # connects /aniket/ URL to aniket() function
+def aniket():
+    return render_template("aniket.html")
+
+
+@app.route('/soham/')  # connects /soham/ URL to soham() function
+def soham():
+    return render_template("soham.html")
+
+
+@app.route('/ryan/')  # connects /ryan/ URL to ryan() function
+def ryan():
+    return render_template("ryan.html")
+
+
+@app.route('/lucas/')  # connects /lucas/ URL to lucas() function
+def lucas():
+    return render_template("lucas.html")
+
+
 # this runs the application on the development server
 if __name__ == "__main__":
     app.run(debug=True)
