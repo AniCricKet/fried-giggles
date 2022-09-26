@@ -8,11 +8,62 @@
 {% block body %}
     <!- Try building a new body here, bootstrap is a wise choice ->
     <div class="px-5 py-5 mx-auto">
-        <h1 class="text-primary"><strong>Stubby Body</strong></h1>
-        <p class="text-secondary">Soham Kamat</p>
-    </div>
+        <h1 class="text-primary"><strong>About Soham Kamat</strong></h1>
+        <p class="text-secondary">Soham Kamat is a high school student who has created this flask server as a part of AP Computer Science Principals. Here is my class schedule below:</p>
+
+    <style>
+    table,
+    td {
+       border: 1px solid #333;
+    }
+
+    thead,
+    tfoot {
+        background-color: #333;
+        color: #fff;
+    }
+    </style>
+
+    <table>
+        <thead>
+            <tr>
+                <th colspan="2">School Schedule</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> Period 1 </td>
+                <td> Mrs. Callicott </td>
+            </tr>
+            <tr>
+                <td> Period 2 </td>
+                <td> Mr. Campillo </td>
+            </tr>
+            <tr>
+                <td> Period 3 </td>
+                <td> Mrs. Bueller </td>
+            </tr>
+            <tr>
+                <td> Period 4 </td>
+                <td> Mrs. James </td>
+            </tr>
+            <tr>
+                <td> Period 5 </td>
+                <td> Mr. Yeung </td>
+            </tr>
+           
+        </tbody>
+      </div>
+    </table>
+ 
+ 
 {% endblock %}
+
+
+
+
 
 <!- This is turning off birds background from base.html -->
 {% block background %}
 {% endblock %}
+
