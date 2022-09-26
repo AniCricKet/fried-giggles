@@ -39,6 +39,10 @@ def ryan():
 @app.route('/lucas/')  # connects /lucas/ URL to lucas() function
 def lucas():
     return render_template("lucas.html")
+    
+@app.route('/team/')  # connects /team/ URL to team() function
+def team():
+    return render_template("team.html")
 
 
 # this runs the application on the development server
