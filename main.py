@@ -45,6 +45,10 @@ def team():
     return render_template("team.html")
 
 
+@app.route('/hangman')
+def hangman():
+    return render_template("hangman.html")
+
 # this runs the application on the development server
 if __name__ == "__main__":
     app.run(debug=True)
