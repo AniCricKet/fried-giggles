@@ -3,5 +3,6 @@ wordlist = {
     'soham': 'Kamat',
     "ryan": "hakimipour",
     "lucas": "moore",
-    'david': 'Warner'
+    'david': 'Warner',
+    "virat": "kohli",
 }
