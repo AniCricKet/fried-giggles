@@ -1,8 +1,18 @@
 <html>
     <div class="px-5 py-5 mx-auto">
         <h1 class="text-white"><strong>Welcome to Hangman!</strong></h1>
+        <h2 id="myword">Here is your random word</h2>
     </div>
-    <py-script>
-        print("Hello World")
-    </py-script>
-</html> 
+    <script>
+        const http = new XMLHttpRequest()
+
+        http.open("GET", "http://127.0.0.1:9999/randomword")
+        http.send()
+        http.onload = () => { 
+            console.log(http.responseText);
+            const elem = document.getElementById('myword');
+            elem.innerHTML = http.responseText;
+        }
+
+    </script>
+</html>

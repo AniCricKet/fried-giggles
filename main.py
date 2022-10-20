@@ -4,6 +4,8 @@ from flask import render_template  # import render_template from "public" flask 
 from __init__ import app  # Definitions initialization
 from api import app_api # Blueprint import api definition
 from bp_projects.projects import app_projects # Blueprint directory import projects definition
+import random
+from words import wordlist
 
 app.register_blueprint(app_api) # register api routes
 app.register_blueprint(app_projects) # register api routes
@@ -49,6 +51,10 @@ def team():
 def hangman():
     return render_template("hangman.html")
 
+@app.route('/randomword')
+def randomword():
+    return ' '.join(random.choice(list(wordlist.items())))
+
 # this runs the application on the development server
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=9999)
