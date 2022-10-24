@@ -42,19 +42,22 @@ def ryan():
 def lucas():
     return render_template("lucas.html")
     
+
 @app.route('/team/')  # connects /team/ URL to team() function
 def team():
     return render_template("team.html")
 
 
-@app.route('/hangman')
-def hangman():
-    return render_template("hangman.html")
+# @app.route('/hangman')
+# def hangman():
+#     return render_template("hangman.html")
+
 
 @app.route('/randomword')
 def randomword():
     # return ' '.join(random.choice(list(wordlist.items())))
     return random.choice(list(wordlist.values()))
+
 
 # this runs the application on the development server
 if __name__ == "__main__":
