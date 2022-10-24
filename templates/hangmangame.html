@@ -2,7 +2,7 @@
 {% extends "layouts/base.html" %}
 
 <!- This variable sets name of browser tab  -->
-{% set project = "hangman" %}
+{% set project = "hangmangame" %}
 
 <!- This is a replacement block for Body in base.html -->
 {% block body %}
@@ -11,7 +11,7 @@
         <h1 class="text-black"><strong>Welcome to Hangman!</strong></h1>
         <h2 class="text-black">Here is your hint:</h2>
         <h4 id="myword"></h4>
-        <img class="card-img-top" src="{{ url_for('static', filename='assets/allbodys.jpg') }}" alt="Hangman" height="450">
+        <img class="card-img-top" src="{{ url_for('static', filename='assets/allbodys.jpg') }}" alt="HangmanGame" height="450">
         <!-- <img class="card-img-top" src="{{ url_for('static', filename='assets/nolefthand.jpeg') }}" alt="Hangman" height="450">
         <img class="card-img-top" src="{{ url_for('static', filename='assets/noarms.jpeg') }}" alt="Hangman" height="450">
         <img class="card-img-top" src="{{ url_for('static', filename='assets/lefttofendforhimself.jpeg') }}" alt="Hangman" height="450">

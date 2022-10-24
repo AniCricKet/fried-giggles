@@ -52,9 +52,9 @@ def scrumboard():
     return render_template("scrumboard.html") 
 
 
-@app.route('/abouthangman')
-def abouthangman():
-    return render_template("abouthangman.html")
+@app.route('/hangmangame/')
+def hangmangame():
+    return render_template("hangmangame.html")
 
 
 @app.route('/randomword')
