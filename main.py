@@ -47,10 +47,14 @@ def lucas():
 def team():
     return render_template("team.html")
 
+@app.route('/scrumboard/')  # connects /team/ URL to team() function
+def scrumboard():
+    return render_template("scrumboard.html") 
 
-# @app.route('/hangman')
-# def hangman():
-#     return render_template("hangman.html")
+
+@app.route('/abouthangman')
+def abouthangman():
+    return render_template("abouthangman.html")
 
 
 @app.route('/randomword')
