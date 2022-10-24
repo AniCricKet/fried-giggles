@@ -55,7 +55,7 @@ def team():
 
 @app.route('/randomword')
 def randomword():
-    # return ' '.join(random.choice(list(wordlist.items())))
+    #return ' '.join(random.choice(list(wordlist.items())))
     return random.choice(list(wordlist.values()))
 
 
