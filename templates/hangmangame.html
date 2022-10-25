@@ -11,6 +11,19 @@
         <h1 class="text-black"><strong>Welcome to Hangman!</strong></h1>
         <h2 class="text-black">Here is your hint:</h2>
         <h4 id="myword"></h4>
+        <style>
+            .logo{
+                width: 100px;
+                display: inline-flex;
+            }
+            
+            .logo img{
+                margin: auto 5px;
+                float: right;
+                width: 150px;
+                height: 38px;
+            }
+        </style>
         <img class="card-img-top" src="{{ url_for('static', filename='assets/allbodys.jpg') }}" alt="HangmanGame" height="450">
         <!-- <img class="card-img-top" src="{{ url_for('static', filename='assets/nolefthand.jpeg') }}" alt="Hangman" height="450">
         <img class="card-img-top" src="{{ url_for('static', filename='assets/noarms.jpeg') }}" alt="Hangman" height="450">
