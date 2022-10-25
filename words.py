@@ -43,7 +43,11 @@ wordlist = {
     'dictionary': 'an abstract data type that defines an unordered collection of data as a set of key-value pairs.',
     'list': ', ‘an abstract data type that represents a finite number of ordered values, where the same value may occur more than once.',
     'argument': 'the actual input expression passed/supplied to a function, procedure, or routine in the invocation/call statement', 
+<<<<<<< HEAD
     'input': 'data that is entered into or received by a computer',
 >>>>>>> 150ce9d (message)
+=======
+    'input': 'Data that is entered into or received by a computer',
+>>>>>>> 957ee35 (message)
     'output': 'Any information processed by and sent out from a computer or other electronic device',
 }
