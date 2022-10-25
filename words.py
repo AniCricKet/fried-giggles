@@ -18,6 +18,7 @@ wordlist = {
     'integer': 'A whole number',
     'boolean': 'A variable which can only be either true or false',
     'conditional': 'Commands which perform different actions depending on weather a boolean condition evaluates the statement to be true or false',
+<<<<<<< HEAD
     'function': 'Self contained modules of code that accomplish a specific task',
     'directory': 'A file system cataloging structure which contains references to other computer files',
     'variable': 'A value that can change, depending on conditions or on information passed to the program',
@@ -30,5 +31,19 @@ wordlist = {
     'list': 'An abstract data type that represents a finite number of ordered values, where the same value may occur more than once',
     'argument': 'The actual input expression passed/supplied to a function, procedure, or routine in the invocation/call statement', 
     'input': 'Data that is entered into or received by a computer',
+=======
+    'function': 'self contained modules of code that accomplish a specific task',
+    'directory': 'A file system cataloging structure which contains references to other computer files',
+    'variable': 'a value that can change, depending on conditions or on information passed to the program',
+    'sprites': 'a two-dimensional image or animated image that plays a specific role, often independently manipulated, within a larger image environment.',
+    'jupyter': 'a free, open-source, interactive web tool known as a computational notebook, which researchers can use to combine software code, computational output, explanatory text and multimedia resources in a single document.',
+    'markdown': 'a markup language that formats plain text',
+    'binary': 'a system where numbers and values are expressed 0 or 1',
+    'array': 'a data structure consisting of a collection of elements (values or variables), each identified by at least one array index or key.',
+    'dictionary': 'an abstract data type that defines an unordered collection of data as a set of key-value pairs.',
+    'list': ', ‘an abstract data type that represents a finite number of ordered values, where the same value may occur more than once.',
+    'argument': 'the actual input expression passed/supplied to a function, procedure, or routine in the invocation/call statement', 
+    'input': 'data that is entered into or received by a computer',
+>>>>>>> 150ce9d (message)
     'output': 'Any information processed by and sent out from a computer or other electronic device',
 }
