@@ -25,6 +25,7 @@ wordlist = {
     'variable': 'A value that can change, depending on conditions or on information passed to the program',
     'sprites': 'A two-dimensional image or animated image that plays a specific role, often independently manipulated, within a larger image environment.',
 <<<<<<< HEAD
+<<<<<<< HEAD
     'jupyter': 'A free, open-source, interactive web tool known as a computational notebook, which researchers can use to combine software code, computational output, explanatory text and multimedia resources in a single document.',
     'markdown': 'A markup language that formats plain text',
     'binary': 'A system where numbers and values are expressed 0 or 1',
@@ -44,6 +45,9 @@ wordlist = {
 =======
 >>>>>>> f261385 (Canadia)
     'jupyter': 'a free, open-source, interactive web tool known as a computational notebook, which researchers can use to combine software code, computational output, explanatory text and multimedia resources in a single document.',
+=======
+    'jupyter': 'A free, open-source, interactive web tool known as a computational notebook, which researchers can use to combine software code, computational output, explanatory text and multimedia resources in a single document.',
+>>>>>>> 276a423 (Canadia)
     'markdown': 'a markup language that formats plain text',
     'binary': 'a system where numbers and values are expressed 0 or 1',
     'array': 'a data structure consisting of a collection of elements (values or variables), each identified by at least one array index or key.',
