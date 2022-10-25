@@ -33,6 +33,7 @@ wordlist = {
     'binary': 'A system where numbers and values are expressed 0 or 1',
     'array': 'A data structure consisting of a collection of elements (values or variables), each identified by at least one array index or key.',
 <<<<<<< HEAD
+<<<<<<< HEAD
     'dictionary': 'An abstract data type that defines an unordered collection of data as a set of key-value pairs.',
     'list': 'An abstract data type that represents a finite number of ordered values, where the same value may occur more than once',
     'argument': 'The actual input expression passed/supplied to a function, procedure, or routine in the invocation/call statement', 
@@ -62,6 +63,9 @@ wordlist = {
 =======
 >>>>>>> 490ac22 (Canadia)
     'dictionary': 'an abstract data type that defines an unordered collection of data as a set of key-value pairs.',
+=======
+    'dictionary': 'An abstract data type that defines an unordered collection of data as a set of key-value pairs.',
+>>>>>>> a187152 (Canadia)
     'list': 'an abstract data type that represents a finite number of ordered values, where the same value may occur more than once.',
     'argument': 'the actual input expression passed/supplied to a function, procedure, or routine in the invocation/call statement', 
 <<<<<<< HEAD
