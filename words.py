@@ -35,6 +35,7 @@ wordlist = {
 <<<<<<< HEAD
 <<<<<<< HEAD
     'dictionary': 'An abstract data type that defines an unordered collection of data as a set of key-value pairs.',
+<<<<<<< HEAD
     'list': 'An abstract data type that represents a finite number of ordered values, where the same value may occur more than once',
     'argument': 'The actual input expression passed/supplied to a function, procedure, or routine in the invocation/call statement', 
     'input': 'Data that is entered into or received by a computer',
@@ -67,6 +68,9 @@ wordlist = {
     'dictionary': 'An abstract data type that defines an unordered collection of data as a set of key-value pairs.',
 >>>>>>> a187152 (Canadia)
     'list': 'an abstract data type that represents a finite number of ordered values, where the same value may occur more than once.',
+=======
+    'list': 'An abstract data type that represents a finite number of ordered values, where the same value may occur more than once.',
+>>>>>>> 4e9366a (Canadia)
     'argument': 'the actual input expression passed/supplied to a function, procedure, or routine in the invocation/call statement', 
 <<<<<<< HEAD
     'input': 'data that is entered into or received by a computer',
