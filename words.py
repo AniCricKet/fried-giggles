@@ -41,7 +41,7 @@ wordlist = {
     'binary': 'a system where numbers and values are expressed 0 or 1',
     'array': 'a data structure consisting of a collection of elements (values or variables), each identified by at least one array index or key.',
     'dictionary': 'an abstract data type that defines an unordered collection of data as a set of key-value pairs.',
-    'list': ', ‘an abstract data type that represents a finite number of ordered values, where the same value may occur more than once.',
+    'list': 'an abstract data type that represents a finite number of ordered values, where the same value may occur more than once.',
     'argument': 'the actual input expression passed/supplied to a function, procedure, or routine in the invocation/call statement', 
 <<<<<<< HEAD
     'input': 'data that is entered into or received by a computer',
