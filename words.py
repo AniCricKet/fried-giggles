@@ -19,6 +19,7 @@ wordlist = {
     'boolean': 'A variable which can only be either true or false',
     'conditional': 'Commands which perform different actions depending on weather a boolean condition evaluates the statement to be true or false',
 <<<<<<< HEAD
+<<<<<<< HEAD
     'function': 'Self contained modules of code that accomplish a specific task',
     'directory': 'A file system cataloging structure which contains references to other computer files',
     'variable': 'A value that can change, depending on conditions or on information passed to the program',
@@ -33,6 +34,9 @@ wordlist = {
     'input': 'Data that is entered into or received by a computer',
 =======
     'function': 'self contained modules of code that accomplish a specific task',
+=======
+    'function': 'Self contained modules of code that accomplish a specific task',
+>>>>>>> d698c18 (lucas)
     'directory': 'A file system cataloging structure which contains references to other computer files',
     'variable': 'A value that can change, depending on conditions or on information passed to the program',
     'sprites': 'a two-dimensional image or animated image that plays a specific role, often independently manipulated, within a larger image environment.',
