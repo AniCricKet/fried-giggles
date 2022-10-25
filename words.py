@@ -29,6 +29,7 @@ wordlist = {
     'jupyter': 'A free, open-source, interactive web tool known as a computational notebook, which researchers can use to combine software code, computational output, explanatory text and multimedia resources in a single document.',
     'markdown': 'A markup language that formats plain text',
 <<<<<<< HEAD
+<<<<<<< HEAD
     'binary': 'A system where numbers and values are expressed 0 or 1',
     'array': 'A data structure consisting of a collection of elements (values or variables), each identified by at least one array index or key.',
     'dictionary': 'An abstract data type that defines an unordered collection of data as a set of key-value pairs.',
@@ -53,6 +54,9 @@ wordlist = {
 =======
 >>>>>>> f204584 (Canadia)
     'binary': 'a system where numbers and values are expressed 0 or 1',
+=======
+    'binary': 'A system where numbers and values are expressed 0 or 1',
+>>>>>>> b90708a (Canadia)
     'array': 'a data structure consisting of a collection of elements (values or variables), each identified by at least one array index or key.',
     'dictionary': 'an abstract data type that defines an unordered collection of data as a set of key-value pairs.',
     'list': 'an abstract data type that represents a finite number of ordered values, where the same value may occur more than once.',
