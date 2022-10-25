@@ -24,6 +24,7 @@ wordlist = {
     'directory': 'A file system cataloging structure which contains references to other computer files',
     'variable': 'A value that can change, depending on conditions or on information passed to the program',
     'sprites': 'A two-dimensional image or animated image that plays a specific role, often independently manipulated, within a larger image environment.',
+<<<<<<< HEAD
     'jupyter': 'A free, open-source, interactive web tool known as a computational notebook, which researchers can use to combine software code, computational output, explanatory text and multimedia resources in a single document.',
     'markdown': 'A markup language that formats plain text',
     'binary': 'A system where numbers and values are expressed 0 or 1',
@@ -40,6 +41,8 @@ wordlist = {
     'directory': 'A file system cataloging structure which contains references to other computer files',
     'variable': 'A value that can change, depending on conditions or on information passed to the program',
     'sprites': 'a two-dimensional image or animated image that plays a specific role, often independently manipulated, within a larger image environment.',
+=======
+>>>>>>> f261385 (Canadia)
     'jupyter': 'a free, open-source, interactive web tool known as a computational notebook, which researchers can use to combine software code, computational output, explanatory text and multimedia resources in a single document.',
     'markdown': 'a markup language that formats plain text',
     'binary': 'a system where numbers and values are expressed 0 or 1',
