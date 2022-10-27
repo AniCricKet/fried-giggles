@@ -1,11 +1,12 @@
 # import "packages" from flask
-from flask import render_template  # import render_template from "public" flask libraries
+from flask import request, render_template, jsonify  # import render_template from "public" flask libraries
 # import "packages" from "this" project
 from __init__ import app  # Definitions initialization
 from api import app_api # Blueprint import api definition
 from bp_projects.projects import app_projects # Blueprint directory import projects definition
 import random
 from words import wordlist
+import hangman
 
 app.register_blueprint(app_api) # register api routes
 app.register_blueprint(app_projects) # register api routes
@@ -67,6 +68,20 @@ def randomword():
     #return ' '.join(random.choice(list(wordlist.items())))
     return random.choice(list(wordlist.values()))
 
+@app.route('/api/newgame')
+def newgame():
+    response = hangman.newSession()
+    return jsonify(response)
+
+@app.route('/api/keypress', methods=['POST'])
+def keypress():
+    context = request.json.get('context')
+    keypressed = request.json.get('key')
+    if ((context == None) or (keypressed == None)):
+        response = {"status": 'ERR', "reason": "Missing context or key"}
+    else:
+        response = hangman.keypress(context, keypressed)
+    return jsonify(response)
 
 # this runs the application on the development server
 if __name__ == "__main__":
