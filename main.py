@@ -58,10 +58,6 @@ def hangmangame():
     return render_template("hangmangame.html")
 
 
-@app.route('/phptest/')
-def phptest():
-    return render_template("index.php")
-
 
 @app.route('/randomword')
 def randomword():
