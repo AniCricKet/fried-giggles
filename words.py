@@ -33,4 +33,6 @@ wordlist = {
     'output': 'Any information processed by and sent out from a computer or other electronic device',
     'string': 'A series of readable or usable sentences that the user will use',
     'parameter': 'Variables for the values the function needs. Is passed as an argument when the function is called',
+    'Summary': 'A short statement of the main points of something',
+    'Exit': 'coming out of a place',
 }
