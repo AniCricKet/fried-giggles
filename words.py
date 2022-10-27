@@ -45,4 +45,5 @@ wordlist = {
     'Lie': 'an untrue statement',
     'Future': 'a later time after the present',
     'Present': 'the period of time occurring now',
+    'Past': 'an earlier time before the present',
 }
