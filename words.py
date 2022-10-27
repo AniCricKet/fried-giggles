@@ -39,4 +39,5 @@ wordlist = {
     'Fork': 'a utensil with two or more prongs used for eating',
     'Spoon': 'a utensil with a round bowl used for eating',
     'Knife': 'a utensil with a sharp edge used for eating',
+    'Sword': 'a weapon with a long blade and a hilt with a hand guard',
 }
