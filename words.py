@@ -37,4 +37,5 @@ wordlist = {
     'Exit': 'Coming out of a place',
     'Enter': 'Go into a place',
     'Fork': 'a utensil with two or more prongs used for eating',
+    'Spoon': 'a utensil with a round bowl used for eating',
 }
