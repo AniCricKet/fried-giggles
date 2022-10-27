@@ -42,4 +42,5 @@ wordlist = {
     'Sword': 'a weapon with a long blade and a hilt with a hand guard',
     'Shield': 'something that protects someone or something from thrown projectiles',
     'Truth': 'the state of being true',
+    'Lie': 'an untrue statement',
 }
