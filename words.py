@@ -40,4 +40,5 @@ wordlist = {
     'Spoon': 'a utensil with a round bowl used for eating',
     'Knife': 'a utensil with a sharp edge used for eating',
     'Sword': 'a weapon with a long blade and a hilt with a hand guard',
+    'Shield': 'something that protects someone or something from thrown projectiles',
 }
