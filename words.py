@@ -36,4 +36,5 @@ wordlist = {
     'Summary': 'A short statement of the main points of something',
     'Exit': 'Coming out of a place',
     'Enter': 'Go into a place',
+    'Fork': 'a utensil with two or more prongs used for eating',
 }
