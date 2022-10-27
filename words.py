@@ -30,5 +30,6 @@ wordlist = {
     'list': 'An abstract data type that represents a finite number of ordered values, where the same value may occur more than once.',
     'argument': 'The actual input expression passed/supplied to a function, procedure, or routine in the invocation/call statement', 
     'input': 'Data that is entered into or received by a computer',
-    'output': 'Any information processed by and sent out from a computer or other electronic device'
+    'output': 'Any information processed by and sent out from a computer or other electronic device',
+    'string': 'A series of readable or usable sentences that the user will use',
 }
