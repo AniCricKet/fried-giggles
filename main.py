@@ -31,8 +31,15 @@ def aniket():
 
 @app.route('/soham/')  # connects /soham/ URL to soham() function
 def soham():
-    return render_template("soham.html")
+     return render_template("soham.html" )
 
+@app.route('/soham/', methods=['GET', 'POST'])
+def soham_post():  
+    if request.method == 'POST':
+        #default_keypressed = 'A'
+        keypressed = request.form.get('fname')
+        print(keypressed)
+        return render_template('soham.html')
 
 @app.route('/ryan/')  # connects /ryan/ URL to ryan() function
 def ryan():
@@ -69,15 +76,27 @@ def newgame():
     response = hangman.newSession()
     return jsonify(response)
 
-@app.route('/api/keypress', methods=['POST'])
+# @app.route('/api/keypress', methods=['GET', 'POST'])
+# def keypress():
+#     context = request.json.get('context')
+#     keypressed = request.json.get('key')
+#     if ((context == None) or (keypressed == None)):
+#         response = {"status": 'ERR', "reason": "Missing context or key"}
+#     else:
+#         response = hangman.keypress(context, keypressed)
+#     return jsonify(response)
+
+@app.route('/api/keypress', methods=['GET', 'POST'])
 def keypress():
     context = request.json.get('context')
+    # keypressed = request.form['key']
     keypressed = request.json.get('key')
     if ((context == None) or (keypressed == None)):
         response = {"status": 'ERR', "reason": "Missing context or key"}
     else:
         response = hangman.keypress(context, keypressed)
     return jsonify(response)
+
 
 # this runs the application on the development server
 if __name__ == "__main__":

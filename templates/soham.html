@@ -1,4 +1,6 @@
 <!-- Extending the predefined project layout -->
+
+
 {% extends "layouts/base.html" %}
 import { createApp } from 'vue'
 <!- This variable sets name of browser tab  -->
@@ -59,58 +61,67 @@ import { createApp } from 'vue'
     </div>
     </table>
 
-    
-    <button type="button" onclick="alert('Hello world!')">Click Me!</button>
+    <form method="POST"> 
 
 
-    <p>Click the button to return the value of its value attribute.</p>
+    <!-- 28 Buttons Code -->
+    <input type="button" value="A" onclick="Letter(this)" id="mykey"/>
+    <input type="button" value="B" onclick="Letter(this)" id="mykey"/>
+    <input type="button" value="C" onclick="Letter(this)" id="mykey"/>
+    <input type="button" value="D" onclick="Letter(this)" id="mykey"/>
+    <input type="button" value="E" onclick="Letter(this)" id="mykey"/>
+    <input type="button" value="F" onclick="Letter(this)" id="mykey"/>
+    <input type="button" value="G" onclick="Letter(this)" id="mykey"/>
+    <input type="button" value="H" onclick="Letter(this)" id="mykey"/>
+    <input type="button" value="I" onclick="Letter(this)" id="mykey"/>
+    <input type="button" value="J" onclick="Letter(this)" id="mykey"/>
+    <input type="button" value="K" onclick="Letter(this)" id="mykey"/>
+    <input type="button" value="L" onclick="Letter(this)" id="mykey"/>
+    <input type="button" value="M" onclick="Letter(this)" id="mykey"/>
+    <input type="button" value="N" onclick="Letter(this)" id="mykey"/>
+    <input type="button" value="O" onclick="Letter(this)" id="mykey"/>
+    <input type="button" value="P" onclick="Letter(this)" id="mykey"/>
+    <input type="button" value="Q" onclick="Letter(this)" id="mykey"/>
+    <input type="button" value="R" onclick="Letter(this)" id="mykey"/>
+    <input type="button" value="S" onclick="Letter(this)" id="mykey"/>
+    <input type="button" value="T" onclick="Letter(this)" id="mykey"/>
+    <input type="button" value="U" onclick="Letter(this)" id="mykey"/>
+    <input type="button" value="V" onclick="Letter(this)" id="mykey"/>
+    <input type="button" value="W" onclick="Letter(this)" id="mykey"/>
+    <input type="button" value="X" onclick="Letter(this)" id="mykey"/>
+    <input type="button" value="Y" onclick="Letter(this)" id="mykey"/>
+    <input type="button" value="Z" onclick="Letter(this)" id="mykey"/>
+    <input type="button" value="Period" onclick="Letter(this)" id="mykey"/>
+    <input type="button" value="Space" onclick="Letter(this)" id="mykey"/>
+    <input type="text" id="fname" name="fname">
     
-    <button id="Letter" value="A" onclick="LetterInWord()">A</button>
-    <button id="Letter" value="B" onclick="LetterInWord()">B</button>
-    <button id="Letter" value="C" onclick="LetterInWord()">C</button>
-    <button id="Letter" value="D" onclick="LetterInWord()">D</button>
-    <button id="Letter" value="E" onclick="LetterInWord()">E</button>
-    <button id="Letter" value="F" onclick="LetterInWord()">F</button>
-    <button id="Letter" value="G" onclick="LetterInWord()">G</button>
-    <button id="Letter" value="H" onclick="LetterInWord()">H</button>
-    <button id="Letter" value="I" onclick="LetterInWord()">I</button>
-    <button id="Letter" value="J" onclick="LetterInWord()">J</button>
-    <button id="Letter" value="K" onclick="LetterInWord()">K</button>
-    <button id="Letter" value="L" onclick="LetterInWord()">L</button>
-    <button id="Letter" value="M" onclick="LetterInWord()">M</button>
-    <button id="Letter" value="N" onclick="LetterInWord()">N</button>
-    <button id="Letter" value="O" onclick="LetterInWord()">O</button>
-    <button id="Letter" value="P" onclick="LetterInWord()">P</button>
-    <button id="Letter" value="Q" onclick="LetterInWord()">Q</button>
-    <button id="Letter" value="R" onclick="LetterInWord()">R</button>
-    <button id="Letter" value="S" onclick="LetterInWord()">S</button>
-    <button id="Letter" value="T" onclick="LetterInWord()">T</button>
-    <button id="Letter" value="U" onclick="LetterInWord()">U</button>
-    <button id="Letter" value="V" onclick="LetterInWord()">V</button>
-    <button id="Letter" value="W" onclick="LetterInWord()">W</button>
-    <button id="Letter" value="X" onclick="LetterInWord()">X</button>
-    <button id="Letter" value="Y" onclick="LetterInWord()">Y</button>
-    <button id="Letter" value="Z" onclick="LetterInWord()">Z</button>
-    <button id="Letter" value="." onclick="LetterInWord()">.</button>
-    <button id="Letter" value=" " onclick="LetterInWord()">_</button>
-    
-    <p id="demo"></p>
+
+    <p>Your Guess is: <br>
+    <span id = "key"></span>
+    <span id = "temp"></span>
+    </p>
 
     <script>
-    function LetterInWord() {
-        var x = document.getElementById("Letter").value;
-        document.getElementById("demo").innerHTML = x;
+    function Letter(x) {
+        if (x.value == "Space") {
+            document.getElementById("key").innerHTML = " ";
+            fname.value = x.value
+        }
+        else if (x.value == "Period") {
+            document.getElementById("key").innerHTML = ".";
+            fname.value = x.value
+        }
+        else {
+            document.getElementById("key").innerHTML = x.value;
+            fname.value = x.value
+            var t = document.getElementById("mykey").form.id;
+            document.getElementById("temp").innerHTML = t;
+        }
     }
-</script>
-
-        
-      
-
-
-
-
+    </script>
+    <input type="submit" value="Go">
+    </form> 
 {% endblock %}
-
 <!- This is turning off birds background from base.html -->
 {% block background %}
 {% endblock %}
