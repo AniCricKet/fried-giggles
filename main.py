@@ -33,13 +33,17 @@ def aniket():
 def soham():
      return render_template("soham.html" )
 
-@app.route('/soham/', methods=['GET', 'POST'])
-def soham_post():  
+@app.route('/hangmangame/')
+def hangmangame():
+    return render_template("hangmangame.html")     
+
+@app.route('/hangmangame/', methods=['GET', 'POST'])
+def hangmangame_post():
     if request.method == 'POST':
         #default_keypressed = 'A'
         keypressed = request.form.get('fname')
         print(keypressed)
-        return render_template('soham.html')
+        return render_template('hangmangame.html')
 
 @app.route('/ryan/')  # connects /ryan/ URL to ryan() function
 def ryan():
@@ -58,11 +62,6 @@ def team():
 @app.route('/scrumboard/')  # connects /team/ URL to team() function
 def scrumboard():
     return render_template("scrumboard.html") 
-
-
-@app.route('/hangmangame/')
-def hangmangame():
-    return render_template("hangmangame.html")
 
 
 

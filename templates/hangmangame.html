@@ -10,7 +10,11 @@
     <div class="px-5 py-5 mx-auto">
         <h1 class="text-black"><strong>Welcome to Hangman!</strong></h1>
         <h2 class="text-black">Here is your hint:</h2>
-        <h4 id="myword"></h4>
+        <h4 id="definition"></h4>
+        <h2 class="text-black">Gamestate:</h2>        
+        <h4 id="gamestate"></h4>
+        <h3 class="text-black">Your Incorrect Guesses:</h3>
+        <h4 id="incorrectguesses"></h4>
         <style>
             .logo{
                 width: 100px;
@@ -24,34 +28,177 @@
                 height: 38px;
             }
         </style>
-        <img class="card-img-top" src="{{ url_for('static', filename='assets/allbodys.jpg') }}" alt="HangmanGame" height="450">
-        <!-- <img class="card-img-top" src="{{ url_for('static', filename='assets/nolefthand.jpeg') }}" alt="Hangman" height="450">
-        <img class="card-img-top" src="{{ url_for('static', filename='assets/noarms.jpeg') }}" alt="Hangman" height="450">
-        <img class="card-img-top" src="{{ url_for('static', filename='assets/lefttofendforhimself.jpeg') }}" alt="Hangman" height="450">
-        <img class="card-img-top" src="{{ url_for('static', filename='assets/nolegs.jpeg') }}" alt="Hangman" height="450">
-        <img class="card-img-top" src="{{ url_for('static', filename='assets/riplollypop.jpeg') }}" alt="Hangman" height="450">
-        <img class="card-img-top" src="{{ url_for('static', filename='assets/ggs.jpeg') }}" alt="Hangman" height="450"> -->
-        <table>
-            <tr><td><button class="editbtn">A</button></td><td><button class="editbtn">B</button></td><td><button class="editbtn">C</button></td><td><button class="editbtn">D</button></td><td><button class="editbtn">E</button></td><td><button class="editbtn">F</button></td><td><button class="editbtn">G</button></td></tr>
-            <tr><td><button class="editbtn">H</button></td><td><button class="editbtn">I</button></td><td><button class="editbtn">J</button></td><td><button class="editbtn">K</button></td><td><button class="editbtn">L</button></td><td><button class="editbtn">M</button></td><td><button class="editbtn">N</button></td></tr>
-            <tr><td><button class="editbtn">O</button></td><td><button class="editbtn">P</button></td><td><button class="editbtn">Q</button></td><td><button class="editbtn">R</button></td><td><button class="editbtn">S</button></td><td><button class="editbtn">T</button></td><td><button class="editbtn">U</button></td></tr>
-            <tr><td><button class="editbtn">V</button></td><td><button class="editbtn">W</button></td><td><button class="editbtn">X</button></td><td><button class="editbtn">Y</button></td><td><button class="editbtn">Z</button></td><td><button class="editbtn">_</button></td><td><button class="editbtn">.</button></td></tr>
-        </table>
-    </div>
-    <script>
-        const http = new XMLHttpRequest()
+    <p>Your Guess is: <br>
+        <span id = "key"></span>
+        <span id = "temp"></span>
+        <span id = "test"></span>
+        <span id = "demo"></span>
+    </p>
+ 
+    <img id="hangmanImage" src="{{ url_for('static', filename='assets/DrawingHangman0.jpg') }}" alt="HangmanGame" height="450">
 
-        http.open("GET", "/randomword")
-        http.send()
-        http.onload = () => { 
-            console.log(http.responseText);
-            const elem = document.getElementById('myword');
-            elem.innerHTML = http.responseText;
+    
+    <!-- <form action="javascript:" onsubmit="onFormSubmit(this)"> -->
+
+    <form action="" method="get"> 
+        <!-- 28 Buttons Code -->
+        <input type="button" value="A" onclick="Letter(this)" id="mykey"/>
+        <input type="button" value="B" onclick="Letter(this)" id="mykey"/>
+        <input type="button" value="C" onclick="Letter(this)" id="mykey"/>
+        <input type="button" value="D" onclick="Letter(this)" id="mykey"/>
+        <input type="button" value="E" onclick="Letter(this)" id="mykey"/>
+        <input type="button" value="F" onclick="Letter(this)" id="mykey"/>
+        <input type="button" value="G" onclick="Letter(this)" id="mykey"/>
+        <input type="button" value="H" onclick="Letter(this)" id="mykey"/>
+        <input type="button" value="I" onclick="Letter(this)" id="mykey"/>
+        <input type="button" value="J" onclick="Letter(this)" id="mykey"/>
+        <input type="button" value="K" onclick="Letter(this)" id="mykey"/>
+        <input type="button" value="L" onclick="Letter(this)" id="mykey"/>
+        <input type="button" value="M" onclick="Letter(this)" id="mykey"/>
+        <input type="button" value="N" onclick="Letter(this)" id="mykey"/>
+        <input type="button" value="O" onclick="Letter(this)" id="mykey"/>
+        <input type="button" value="P" onclick="Letter(this)" id="mykey"/>
+        <input type="button" value="Q" onclick="Letter(this)" id="mykey"/>
+        <input type="button" value="R" onclick="Letter(this)" id="mykey"/>
+        <input type="button" value="S" onclick="Letter(this)" id="mykey"/>
+        <input type="button" value="T" onclick="Letter(this)" id="mykey"/>
+        <input type="button" value="U" onclick="Letter(this)" id="mykey"/>
+        <input type="button" value="V" onclick="Letter(this)" id="mykey"/>
+        <input type="button" value="W" onclick="Letter(this)" id="mykey"/>
+        <input type="button" value="X" onclick="Letter(this)" id="mykey"/>
+        <input type="button" value="Y" onclick="Letter(this)" id="mykey"/>
+        <input type="button" value="Z" onclick="Letter(this)" id="mykey"/>
+        <input type="text" id="fname" name="fname">
+        
+        <!-- <input type="submit" value="Go"> -->
+        <!-- <button onclick = "submitInput()">Submit</button> -->
+        <input type="button" value="Submit" onclick="return submitInput();">
+        </form>  
+
+        <script>
+
+        const loadOnce = 0;
+        var context, gamestate, definition, elem = null;
+        var correctguesses, incorrectguesses = [];
+        var bodyparts = 0;
+
+        function debug(x) {
+            document.getElementById("test").innerHTML = x;
+         }
+
+         function updateState(res) {
+                elem = document.getElementById('definition');
+                elem.innerHTML = res.definition;
+                elem = document.getElementById('gamestate');
+                elem.innerHTML = res.gamestate;
+                elem = document.getElementById('incorrectguesses');
+                elem.innerHTML = res.incorrectguesses;
+         }
+
+
+
+        if (loadOnce == 0)
+        {
+            const http = new XMLHttpRequest()
+
+            http.open("GET", "/api/newgame")
+            http.send()
+            http.onload = () => { 
+                console.log(http.responseText);
+                const res = JSON.parse(http.responseText);
+                bodyparts = res.bodyparts;
+                context = res.context;
+                correctguesses = res.correctguesses;
+                definition = res.definition;
+                gamestate = res.gamestate;
+                incorrectguesses = res.incorrectguesses;
+
+                updateState(res);
+
+                }
+           }
+
+        function submitInput()
+        {
+            let msg = "";
+            //debug(msg);
+            msg = "You are in submitInput";
+            // debug(msg);
+
+         
+            //document.getElementById("hangmanImage").src="{{ url_for('static', filename='assets/nolefthand.jpeg')}}"
+   
+            key = document.getElementById('key').innerHTML;
+            context = this.context;
+
+            // curl -X POST -H "Content-Type: application/json" http://127.0.0.1:9999/api/keypress -d '{"context": "8c03b150-cb12-45f5-acc7-8b105705dd5d", "key": "n" }'
+            //request2.send(JSON.stringify({'context':'118c19f8-63f9-46cb-9109-2d9af4429708','key':'h'}))
+
+            let request2 = new XMLHttpRequest()
+            request2.open("POST", "http://127.0.0.1:9999/api/keypress")
+
+            request2.setRequestHeader('Content-Type', 'application/json');
+            const obj = {'context':context,'key':key};
+            const myJSON = JSON.stringify(obj);
+            request2.send(myJSON)
+
+            request2.onload = () => { 
+                console.log(request2);
+                if (request2.readyState == 4 && request2.status == 200) {
+                    document.getElementById("demo").innerHTML = request2.responseText;
+                    res = JSON.parse(request2.responseText);
+                    if(!res.status){
+                        updateState(res);
+                        // alert(res.bodyparts)
+                        updateImage(parseInt(res.bodyparts))
+                    }
+                }
+                else{
+                    console.log('error ${request2.state} ${request2.statusText')
+                }
+            }
+
         }
 
-    </script>
-{% endblock %}
+        function Letter(x) {
+            document.getElementById("key").innerHTML = x.value;
+            fname.value = x.value
+        }
 
-<!- This is turning off birds background from base.html -->
-{% block background %}
-{% endblock %}    
+        function updateImage(incorrectAns){
+            
+            // alert(incorrectAns)
+            if (incorrectAns == 1) {
+                document.getElementById("hangmanImage").src="{{ url_for('static', filename='assets/DrawingHangman1.jpg')}}"
+                console.log("image1")
+            }
+            else if (incorrectAns == 2) {
+                document.getElementById("hangmanImage").src="{{ url_for('static', filename='assets/DrawingHangman2.jpg')}}"
+                console.log("image2")
+            }
+            else if (incorrectAns == 3) {
+                document.getElementById("hangmanImage").src="{{ url_for('static', filename='assets/DrawingHangman3.jpg')}}"
+                console.log("image3")
+            }
+            else if (incorrectAns == 4) {
+                document.getElementById("hangmanImage").src="{{ url_for('static', filename='assets/DrawingHangman4.jpg')}}"
+                console.log("image4")
+            }
+            else if (incorrectAns == 5) {
+                document.getElementById("hangmanImage").src="{{ url_for('static', filename='assets/DrawingHangman5.jpg')}}"
+                console.log("image5")
+            }
+            else if (incorrectAns == 6) {
+                document.getElementById("hangmanImage").src="{{ url_for('static', filename='assets/DrawingHangman6.jpg')}}"
+                console.log("image6")
+            }
+        }
+
+
+    </script>
+    </div>   
+
+    {% endblock %}
+    <!- This is turning off birds background from base.html -->
+    {% block background %}
+    {% endblock %}

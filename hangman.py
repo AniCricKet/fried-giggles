@@ -10,7 +10,7 @@ def generate_gamestate(word, guesses):
         if character in guesses:
             output += character
         else:
-            output+= ("-")
+            output+= ("_ ")
     return (output)
 
 def format_output(session):
