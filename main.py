@@ -1,5 +1,6 @@
 # import "packages" from flask
 from flask import request, render_template, jsonify  # import render_template from "public" flask libraries
+import flask_cors
 # import "packages" from "this" project
 from __init__ import app  # Definitions initialization
 from api import app_api # Blueprint import api definition
@@ -71,6 +72,7 @@ def randomword():
     return random.choice(list(wordlist.values()))
 
 @app.route('/api/newgame')
+@flask_cors.cross_origin()
 def newgame():
     response = hangman.newSession()
     return jsonify(response)
@@ -86,6 +88,7 @@ def newgame():
 #     return jsonify(response)
 
 @app.route('/api/keypress', methods=['GET', 'POST'])
+@flask_cors.cross_origin()
 def keypress():
     context = request.json.get('context')
     # keypressed = request.form['key']

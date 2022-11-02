@@ -12,7 +12,7 @@ These object can be used throughout project.
 
 # Setup of key Flask object (app)
 app = Flask(__name__)
-cors = CORS(app, resources={r"/api*": {"origins": "*"}})
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 # Setup SQLAlchemy object and properties for the database (db)
 dbURI = 'sqlite:///volumes/sqlite.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
