@@ -9,7 +9,7 @@
     <!- Try building a new body here, bootstrap is a wise choice ->
     <div class="px-5 py-5 mx-auto">
         <h1 class="text-black"><strong>Welcome to Hangman!</strong></h1>
-        <h2 class="text-black">Here is your hint:</h2>
+        <h2 class="text-black">Here is your definition:</h2>
         <h4 id="definition"></h4>
         <h2 class="text-black">Your Word:</h2>
         <h4 id="gamestate"></h4>
@@ -30,11 +30,10 @@
         </style>
     <p>Your Guess is: <br>
         <span id = "key"></span>
-        <!-- <span id = "temp"></span> -->
         <span id = "test"></span>
-        <span id = "demo"></span>
     </p>
- 
+    
+    <h2 id="result"></h2>
     <img id="hangmanImage" src="{{ url_for('static', filename='assets/DrawingHangman0.jpg') }}" alt="HangmanGame" height="450">
 
     
@@ -68,11 +67,7 @@
         <input type="button" value="X" onclick="Letter(this)" id="mykey"/>
         <input type="button" value="Y" onclick="Letter(this)" id="mykey"/>
         <input type="button" value="Z" onclick="Letter(this)" id="mykey"/>
-        <input type="text" id="fname" name="fname">
         
-        <!-- <input type="submit" value="Go"> -->
-        <!-- <button onclick = "submitInput()">Submit</button> -->
-        <input type="button" value="Submit" onclick="return submitInput();">
         </form>  
 
         <script>
@@ -81,6 +76,7 @@
         var context, gamestate, definition, elem = null;
         var correctguesses, incorrectguesses = [];
         var bodyparts = 0;
+        var gameover = false;
 
         function debug(x) {
             document.getElementById("test").innerHTML = x;
@@ -145,12 +141,15 @@
             request2.onload = () => { 
                 console.log(request2);
                 if ((request2.readyState == 4) && (request2.status == 200)) {
-                    document.getElementById("demo").innerHTML = request2.responseText;
                     res = JSON.parse(request2.responseText);
-                    if(!res.status){
+                    if(res.status){
                         updateState(res);
                         // alert(res.bodyparts)
                         updateImage(parseInt(res.bodyparts))
+                        if ((res.status == 'END')||(res.status == 'WIN')){
+                            gameover = true;
+                            document.getElementById("result").innerHTML = res.reason
+                        }
                     }
                 }
                 else{
@@ -161,8 +160,11 @@
         }
 
         function Letter(x) {
+            if (gameover != true){
+
             document.getElementById("key").innerHTML = x.value;
-            fname.value = x.value
+            submitInput();
+            }
         }
 
         function updateImage(incorrectAns){
