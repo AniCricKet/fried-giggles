@@ -29,7 +29,7 @@ def newSession():
 
     bodyparts = 0
     session = { 'context': localID, 'word': word, 'definition': definition, 'gamestate': gamestate, 'correctguesses': correctguesses, 
-                'incorrectguesses': incorrectguesses, 'bodyparts': bodyparts}
+                'incorrectguesses': incorrectguesses, 'bodyparts': bodyparts, 'status': 'OK', 'reason': 'Game in progress'}
 
     sessions[localID] = session
     return(format_output(session))
@@ -42,16 +42,30 @@ def keypress(context, key):
     print("Session = " + str(session))
     print("Key = " + key)
     if ((len(key) != 1) or (key not in string.ascii_lowercase)):
-        return {"status": 'ERR', "reason": "Invalid Key (single lowercase character only"}
+        err = {"status": 'ERR', "reason": "Invalid Key (Single lowercase character only"}
+        session.update(err)
+        return(format_output(session)) 
     if ((key in session['correctguesses']) or (key in session['incorrectguesses'])):
-        return {"status": 'ERR', "reason": "Letter already guessed"}
-
+        err = {"status": 'ERR', "reason": "Letter already guessed"}
+        session.update(err)
+        return(format_output(session))
     if key in session['word']:
         # Letter correctly guessed
         session['correctguesses'].append(key)
+        session['status'] = 'OK'
+        session['reason'] = 'Game in progress'
         session['gamestate'] = generate_gamestate(session['word'], session['correctguesses'])
+        if (session['gamestate'] == session['word']):
+            session['status'] = 'WIN'
+            session['reason'] = 'Congratulations! You have won!'
     else:
         session['bodyparts'] += 1
         session['incorrectguesses'].append(key)
+        if (session['bodyparts'] <= 5):
+            session['status'] = 'OK'
+            session['reason'] = 'Game in progress'
+        else:
+            session['status'] = 'END'
+            session['reason'] = 'You lose! The correct word was ' + session['word'] + '.'
     print("Session = " + str(session))
     return(format_output(session))
