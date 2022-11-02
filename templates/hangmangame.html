@@ -135,7 +135,7 @@
             //request2.send(JSON.stringify({'context':'118c19f8-63f9-46cb-9109-2d9af4429708','key':'h'}))
 
             let request2 = new XMLHttpRequest()
-            request2.open("POST", "http://127.0.0.1:9999/api/keypress")
+            request2.open("POST", "/api/keypress")
 
             request2.setRequestHeader('Content-Type', 'application/json');
             const obj = {'context':context,'key':key};
@@ -144,7 +144,7 @@
 
             request2.onload = () => { 
                 console.log(request2);
-                if (request2.readyState == 4 && request2.status == 200) {
+                if ((request2.readyState == 4) && (request2.status == 200)) {
                     document.getElementById("demo").innerHTML = request2.responseText;
                     res = JSON.parse(request2.responseText);
                     if(!res.status){
