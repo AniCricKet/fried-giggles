@@ -1,103 +1,192 @@
-<!-- Extending the predefined project layout -->
-{% extends "layouts/base.html" %}
-
-<!- This variable sets name of browser tab  -->
-{% set project = "hangmangame" %}
-
-<!- This is a replacement block for Body in base.html -->
-{% block body %}
-    <!- Try building a new body here, bootstrap is a wise choice ->
-    <div class="px-5 py-5 mx-auto">
-        <h1 class="text-black"><strong>Welcome to Hangman!</strong></h1>
-        <h2 class="text-black">Here is your definition:</h2>
-        <h4 id="definition"></h4>
-        <h2 class="text-black">Your Word:</h2>
-        <h4 id="gamestate"></h4>
-        <h3 class="text-black">Your Incorrect Guesses:</h3>
-        <h4 id="incorrectguesses"></h4>
-        <style>
-            .logo{
-                width: 100px;
-                display: inline-flex;
-            }
-            
-            .logo img{
-                margin: auto 5px;
-                float: right;
-                width: 150px;
-                height: 38px;
-            }
-        </style>
-    <p>Your Guess is: <br>
-        <span id = "key"></span>
-        <span id = "test"></span>
-    </p>
+<style>
+    body {
+        background-color: rgb(174, 219, 155);
+    }
+    table, td, th {
+      /* border: 1px solid black; */
+      border: 1px
+    }
     
-    <h2 id="result"></h2>
-    <img id="hangmanImage" src="{{ url_for('static', filename='assets/DrawingHangman0.jpg') }}" alt="HangmanGame" height="450">
-
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
     
-    <!-- <form action="javascript:" onsubmit="onFormSubmit(this)"> -->
+    td {
+      height: 10px;
+      vertical-align: bottom;
+      
+    }
+    .logo{
+        width: 100px;
+        display: inline-flex;
+    }
+    
+    .logo img{
+        margin: auto 5px;
+        float: right;
+        width: 100px;  
+        height: 25px;
+    }
+</style>
 
-    <form action="" method="get"> 
-        <!-- 28 Buttons Code -->
-        <input type="button" value="A" onclick="Letter(this)" id="mykey"/>
-        <input type="button" value="B" onclick="Letter(this)" id="mykey"/>
-        <input type="button" value="C" onclick="Letter(this)" id="mykey"/>
-        <input type="button" value="D" onclick="Letter(this)" id="mykey"/>
-        <input type="button" value="E" onclick="Letter(this)" id="mykey"/>
-        <input type="button" value="F" onclick="Letter(this)" id="mykey"/>
-        <input type="button" value="G" onclick="Letter(this)" id="mykey"/>
-        <input type="button" value="H" onclick="Letter(this)" id="mykey"/>
-        <input type="button" value="I" onclick="Letter(this)" id="mykey"/>
-        <input type="button" value="J" onclick="Letter(this)" id="mykey"/>
-        <input type="button" value="K" onclick="Letter(this)" id="mykey"/>
-        <input type="button" value="L" onclick="Letter(this)" id="mykey"/>
-        <input type="button" value="M" onclick="Letter(this)" id="mykey"/>
-        <input type="button" value="N" onclick="Letter(this)" id="mykey"/>
-        <input type="button" value="O" onclick="Letter(this)" id="mykey"/>
-        <input type="button" value="P" onclick="Letter(this)" id="mykey"/>
-        <input type="button" value="Q" onclick="Letter(this)" id="mykey"/>
-        <input type="button" value="R" onclick="Letter(this)" id="mykey"/>
-        <input type="button" value="S" onclick="Letter(this)" id="mykey"/>
-        <input type="button" value="T" onclick="Letter(this)" id="mykey"/>
-        <input type="button" value="U" onclick="Letter(this)" id="mykey"/>
-        <input type="button" value="V" onclick="Letter(this)" id="mykey"/>
-        <input type="button" value="W" onclick="Letter(this)" id="mykey"/>
-        <input type="button" value="X" onclick="Letter(this)" id="mykey"/>
-        <input type="button" value="Y" onclick="Letter(this)" id="mykey"/>
-        <input type="button" value="Z" onclick="Letter(this)" id="mykey"/>
-        
-        </form>  
+<div class="px-5 py-5 mx-auto">
+    <table>
+        <tr>
+            <td>
+                <a href="/fried-giggles/"><img src="/fried-giggles/static/assets/home.png" alt="GoHome" height = "50"></a>
+                <h1 class="text-black"><strong>Welcome to Hangman!</strong></h1></th>
+                <img id="newGame" src="/fried-giggles/static/assets/home.png" alt="New Game" height="60"></a>
+            </td>
+        </tr>
+    </table>
+        <table>
+            <tr>
+            <td>                    
+                <!-- <a href="/lyntax_final/"><img src="/lyntax_final/images/home-removebg.png" alt="GoHome" height = "50"></a> -->
+            </td>
+                <!-- <th><h1 class="text-black"><strong>Welcome to Hangman!</strong></h1></th> -->
+            <td>
+                <!-- <a href="/lyntax_final/hangman2"><img id="newGame" src="/lyntax_final/images/newgame.jpg" alt="New Game" height="60"></a> -->
+            </td>
+            </tr>
+        <tbody>
+            <tr>
+                <td> 
+                    <table>
+                        <tr>
+                            <td>
+                                <h3 class="text-black">Here is your definition:</h3>
+                                <h4 id="definition"></h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h2 id="result"></h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h3 class="text-black">Word:</h3>        
+                                <h4 id="gamestate"></h4>
+                            </td>
+                        </tr>
+                        <tr><td>
+                            <h3 class="text-black">Your Guess is:</h3>
+                                <span id = "key"></span>
+                                <span id = "test"></span>
+                            </p>
+                                                    
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h3 class="text-black">Your Incorrect Guesses:</h3>
+                                <h4 id="incorrectguesses"></h4>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
 
-        <script>
+                <td rowspan="3">
+                    <img id="hangmanImage" src="/fried-giggles/static/assets/DrawingHangman0.png" alt="HangmanGame" height="450">
+                </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                    <form action="" method="get"> 
+                        <!-- 28 Buttons Code -->
+                        <table>
+                            <tr>
+                                <td>
+                                    <input type="button" value="A" onclick="Letter(this)" id="mykey"/>
+                                    <input type="button" value="B" onclick="Letter(this)" id="mykey"/>
+                                    <input type="button" value="C" onclick="Letter(this)" id="mykey"/>
+                                    <input type="button" value="D" onclick="Letter(this)" id="mykey"/>
+                                    <input type="button" value="E" onclick="Letter(this)" id="mykey"/>
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="button" value="F" onclick="Letter(this)" id="mykey"/>
+                                    <input type="button" value="G" onclick="Letter(this)" id="mykey"/>
+                                    <input type="button" value="H" onclick="Letter(this)" id="mykey"/>
+                                    <input type="button" value="I" onclick="Letter(this)" id="mykey"/>
+                                    <input type="button" value="J" onclick="Letter(this)" id="mykey"/>
+                                    </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="button" value="K" onclick="Letter(this)" id="mykey"/>
+                                    <input type="button" value="L" onclick="Letter(this)" id="mykey"/>
+                                    <input type="button" value="M" onclick="Letter(this)" id="mykey"/>
+                                    <input type="button" value="N" onclick="Letter(this)" id="mykey"/>
+                                    <input type="button" value="O" onclick="Letter(this)" id="mykey"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="button" value="P" onclick="Letter(this)" id="mykey"/>
+                                    <input type="button" value="Q" onclick="Letter(this)" id="mykey"/>
+                                    <input type="button" value="R" onclick="Letter(this)" id="mykey"/>
+                                    <input type="button" value="S" onclick="Letter(this)" id="mykey"/>
+                                    <input type="button" value="T" onclick="Letter(this)" id="mykey"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="button" value="U" onclick="Letter(this)" id="mykey"/>
+                                    <input type="button" value="V" onclick="Letter(this)" id="mykey"/>
+                                    <input type="button" value="W" onclick="Letter(this)" id="mykey"/>
+                                    <input type="button" value="X" onclick="Letter(this)" id="mykey"/>
+                                    <input type="button" value="Y" onclick="Letter(this)" id="mykey"/>
+                                    <input type="button" value="Z" onclick="Letter(this)" id="mykey"/>
+                                </td>
+                            </tr>
+                        </table>
+                        
+                    </form>                     
+                
+                    </td>
+                </tr>
 
-        const loadOnce = 0;
-        var context, gamestate, definition, elem = null;
-        var correctguesses, incorrectguesses = [];
-        var bodyparts = 0;
-        var gameover = false;
+            </tbody>
+</div>
 
-        function debug(x) {
-            document.getElementById("test").innerHTML = x;
-         }
+<script>
 
-         function updateState(res) {
-                elem = document.getElementById('definition');
-                elem.innerHTML = res.definition;
-                elem = document.getElementById('gamestate');
-                elem.innerHTML = res.gamestate;
-                elem = document.getElementById('incorrectguesses');
-                elem.innerHTML = res.incorrectguesses;
-         }
+    var loadOnce = 0;
+    var context, gamestate, definition, elem = null;
+    var correctguesses, incorrectguesses = [];
+    var bodyparts = 0;
+    var gameover = false;
+
+    function debug(x) {
+        document.getElementById("demo").innerHTML = x;
+        }
+
+        function updateState(res) {
+            elem = document.getElementById('definition');
+            elem.innerHTML = res.definition;
+            elem = document.getElementById('gamestate');
+            elem.innerHTML = res.gamestate;
+            elem = document.getElementById('incorrectguesses');
+            elem.innerHTML = res.incorrectguesses;
+        }
 
 
-
+        function newGame() {
         if (loadOnce == 0)
         {
             const http = new XMLHttpRequest()
 
-            http.open("GET", "/api/newgame")
+            http.open("GET", "http://127.0.0.1:9999/api/newgame")
+            
             http.send()
             http.onload = () => { 
                 console.log(http.responseText);
@@ -110,35 +199,32 @@
                 incorrectguesses = res.incorrectguesses;
 
                 updateState(res);
+                loadOnce = 1;
 
-                }
-           }
+            }
+        }
+    }
 
-        function submitInput()
-        {
-            let msg = "";
-            //debug(msg);
-            msg = "You are in submitInput";
-            // debug(msg);
+    function submitInput()
+    {
+    
+        // key = document.getElementById('key').innerHTML;
+        key = document.getElementById('key').innerHTML;
+        context = this.context;
 
-         
-            //document.getElementById("hangmanImage").src="{{ url_for('static', filename='assets/nolefthand.jpeg')}}"
-   
-            key = document.getElementById('key').innerHTML;
-            context = this.context;
+        // curl -X POST -H "Content-Type: application/json" http://127.0.0.1:9999/api/keypress -d '{"context": "8c03b150-cb12-45f5-acc7-8b105705dd5d", "key": "n" }'
+        // request2.send(JSON.stringify({'context':'118c19f8-63f9-46cb-9109-2d9af4429708','key':'h'}))
 
-            // curl -X POST -H "Content-Type: application/json" http://127.0.0.1:9999/api/keypress -d '{"context": "8c03b150-cb12-45f5-acc7-8b105705dd5d", "key": "n" }'
-            //request2.send(JSON.stringify({'context':'118c19f8-63f9-46cb-9109-2d9af4429708','key':'h'}))
+        let request2 = new XMLHttpRequest()
+        request2.open("POST", "http://127.0.0.1:9999/api/keypress") //uncomment for final
+        // request2.open("POST", "/api/keypress") // uncomment for local testing
 
-            let request2 = new XMLHttpRequest()
-            request2.open("POST", "/api/keypress")
+        request2.setRequestHeader('Content-Type', 'application/json');
+        const obj = {'context':context,'key':key};
+        const myJSON = JSON.stringify(obj);
+        request2.send(myJSON)
 
-            request2.setRequestHeader('Content-Type', 'application/json');
-            const obj = {'context':context,'key':key};
-            const myJSON = JSON.stringify(obj);
-            request2.send(myJSON)
-
-            request2.onload = () => { 
+        request2.onload = () => { 
                 console.log(request2);
                 if ((request2.readyState == 4) && (request2.status == 200)) {
                     res = JSON.parse(request2.responseText);
@@ -148,7 +234,13 @@
                         updateImage(parseInt(res.bodyparts))
                         if ((res.status == 'END')||(res.status == 'WIN')){
                             gameover = true;
-                            document.getElementById("result").innerHTML = res.reason
+                            document.getElementById("result").innerHTML = res.reason;
+                        }
+                        if(res.status =='ERR'){
+                            document.getElementById("result").innerHTML = res.reason;
+                        }
+                        if (res.status=='OK'){
+                            document.getElementById("result").innerHTML = '';
                         }
                     }
                 }
@@ -159,48 +251,42 @@
 
         }
 
-        function Letter(x) {
-            if (gameover != true){
-
+    function Letter(x) {
+        if (gameover != true){
             document.getElementById("key").innerHTML = x.value;
             submitInput();
-            }
         }
+    }
 
-        function updateImage(incorrectAns){
-            
-            // alert(incorrectAns)
-            if (incorrectAns == 1) {
-                document.getElementById("hangmanImage").src="{{ url_for('static', filename='assets/DrawingHangman1.jpg')}}"
-                console.log("image1")
-            }
-            else if (incorrectAns == 2) {
-                document.getElementById("hangmanImage").src="{{ url_for('static', filename='assets/DrawingHangman2.jpg')}}"
-                console.log("image2")
-            }
-            else if (incorrectAns == 3) {
-                document.getElementById("hangmanImage").src="{{ url_for('static', filename='assets/DrawingHangman3.jpg')}}"
-                console.log("image3")
-            }
-            else if (incorrectAns == 4) {
-                document.getElementById("hangmanImage").src="{{ url_for('static', filename='assets/DrawingHangman4.jpg')}}"
-                console.log("image4")
-            }
-            else if (incorrectAns == 5) {
-                document.getElementById("hangmanImage").src="{{ url_for('static', filename='assets/DrawingHangman5.jpg')}}"
-                console.log("image5")
-            }
-            else if (incorrectAns == 6) {
-                document.getElementById("hangmanImage").src="{{ url_for('static', filename='assets/DrawingHangman6.jpg')}}"
-                console.log("image6")
-            }
+    function updateImage(incorrectAns){
+        
+        // alert(incorrectAns)
+        if (incorrectAns == 1) {
+            document.getElementById("hangmanImage").src="/fried-giggles/static/assets/DrawingHangman1.png"
+            console.log("image1")
         }
+        else if (incorrectAns == 2) {
+            document.getElementById("hangmanImage").src="/fried-giggles/static/assets/DrawingHangman2.png"
+            console.log("image2")
+        }
+        else if (incorrectAns == 3) {
+            document.getElementById("hangmanImage").src="/fried-giggles/static/assets/DrawingHangman3.png"
+            console.log("image3")
+        }
+        else if (incorrectAns == 4) {
+            document.getElementById("hangmanImage").src="/fried-giggles/static/assets/DrawingHangman4.png"
+            console.log("image4")
+        }
+        else if (incorrectAns == 5) {
+            document.getElementById("hangmanImage").src="/fried-giggles/static/assets/DrawingHangman5.png"
+            console.log("image5")
+        }
+        else if (incorrectAns == 6) {
+            document.getElementById("hangmanImage").src="/fried-giggles/static/assets/DrawingHangman6.png"
+            console.log("image6")
+        }
+    }
 
-
-    </script>
-    </div>   
-
-    {% endblock %}
-    <!- This is turning off birds background from base.html -->
-    {% block background %}
-    {% endblock %}
+    newGame();
+</script>
+</div>
